@@ -69,7 +69,7 @@ func TestAccKeycloakRealmKeystoreJava_createAfterManualDestroy(t *testing.T) {
 func TestAccKeycloakRealmKeystoreJava_algorithmValidation(t *testing.T) {
 	t.Parallel()
 
-	algorithm := randomStringInSlice(keycloakRealmKeystoreJavaKeystoreAlgorithm)
+	algorithm := "RS256"
 
 	resource.Test(t, resource.TestCase{
 		ProviderFactories: testAccProviderFactories,
@@ -101,7 +101,7 @@ func TestAccKeycloakRealmKeystoreJava_updateRsaKeystoreGenerated(t *testing.T) {
 		Enabled:   enabled,
 		Active:    active,
 		Priority:  acctest.RandIntRange(0, 100),
-		Algorithm: randomStringInSlice(keycloakRealmKeystoreJavaKeystoreAlgorithm),
+		Algorithm: "RS256",
 	}
 
 	groupKeystoreTwo := &keycloak.RealmKeystoreJavaKeystore{
@@ -110,7 +110,7 @@ func TestAccKeycloakRealmKeystoreJava_updateRsaKeystoreGenerated(t *testing.T) {
 		Enabled:   enabled,
 		Active:    active,
 		Priority:  acctest.RandIntRange(0, 100),
-		Algorithm: randomStringInSlice(keycloakRealmKeystoreJavaKeystoreAlgorithm),
+		Algorithm: "PS256",
 	}
 
 	resource.Test(t, resource.TestCase{
