@@ -15,7 +15,7 @@ type RealmKeystoreJavaKeystore struct {
 	Enabled   bool
 	Priority  int
 	Algorithm string
-//	KeyUse    string
+	KeyUse    string
 
 	Keystore         string
 	KeystorePassword string
@@ -37,9 +37,9 @@ func convertFromRealmKeystoreJavaKeystoreToComponent(realmKey *RealmKeystoreJava
 		"algorithm": {
 			realmKey.Algorithm,
 		},
-//		"keyUse": {
-//			realmKey.KeyUse,
-//		},
+		"keyUse": {
+			realmKey.KeyUse,
+		},
 		"keystore": {
 			realmKey.Keystore,
 		},
@@ -92,7 +92,7 @@ func convertFromComponentToRealmKeystoreJavaKeystore(component *component, realm
 		Enabled:          enabled,
 		Priority:         priority,
 		Algorithm:        component.getConfig("algorithm"),
-//		KeyUse:           component.getConfig("keyUse"),
+		KeyUse:           component.getConfig("keyUse"),
 		Keystore:         component.getConfig("keystore"),
 		KeystorePassword: component.getConfig("keystorePassword"),
 		KeyAlias:         component.getConfig("keyAlias"),
